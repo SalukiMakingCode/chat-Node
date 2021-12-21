@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -22,7 +23,10 @@ app.use((req, res, next) => {
    next();
 });
 
+app.use(express.static(path.join(__dirname, 'frontend')));
+
 app.use('/api/message', messageRoutes);
 app.use('/api/auth', userRoutes);
+
 
 module.exports = app;

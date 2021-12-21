@@ -37,6 +37,14 @@ const errorHandler = error => {
 
 const server = http.createServer(app);
 
+const { Server } = require("socket.io");
+const io = new Server(server);
+io.on('connection', (socket) => {
+    socket.on('chat message', (msg) => {
+        io.emit('chat message', msg);
+    });
+});
+
 server.on('error', errorHandler);
 server.on('listening', () => {
     const address = server.address();
