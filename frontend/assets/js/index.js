@@ -4,7 +4,10 @@ document.getElementById("pushit").addEventListener("click", ()=> {
         "userId" : document.getElementById('userId').value,
     }
     console.log(form);
-    fetch("http://localhost:3000/api/message", {cache: "reload", method: "POST", body: JSON.stringify(form)})
+    fetch("http://localhost:3000/api/message", {cache: "reload",headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }, method: "POST", body: JSON.stringify(form)})
         .then(response => response.text())
         .then(saveData => {
             console.log(saveData);
@@ -19,7 +22,10 @@ document.getElementById("putit").addEventListener("click", ()=> {
         "message" : document.getElementById('messageput').value,
         "userId" : document.getElementById('userIdput').value,
     }
-    fetch("http://localhost:3000/api/message/" + id, {cache: "reload", method: "PUT", body: JSON.stringify(form)})
+    fetch("http://localhost:3000/api/message/" + id, {cache: "reload", headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }, method: "PUT", body: JSON.stringify(form)})
         .then(response => response.text())
         .then(saveData => {
             console.log(saveData);
