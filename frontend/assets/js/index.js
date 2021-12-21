@@ -61,3 +61,37 @@ document.getElementById("deleteone").addEventListener("click", ()=> {
         })
         .catch(err => console.log(err))
 })
+
+
+document.getElementById("createUser").addEventListener("click", ()=> {
+    let form = {
+        "email" : document.getElementById('email').value,
+        "password" : document.getElementById('password').value,
+    }
+    fetch("http://localhost:3000/api/auth/signup", {cache: "reload",headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }, method: "POST", body: JSON.stringify(form)})
+        .then(response => response.text())
+        .then(saveData => {
+            console.log(saveData);
+        })
+        .catch(err => console.log(err))
+})
+
+
+document.getElementById("logUser").addEventListener("click", ()=> {
+    let form = {
+        "email" : document.getElementById('emailLogin').value,
+        "password" : document.getElementById('passwordLogin').value,
+    }
+    fetch("http://localhost:3000/api/auth/login", {cache: "reload",headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }, method: "POST", body: JSON.stringify(form)})
+        .then(response => response.text())
+        .then(saveData => {
+            console.log(saveData);
+        })
+        .catch(err => console.log(err))
+})
