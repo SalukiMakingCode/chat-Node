@@ -3,6 +3,7 @@ document.getElementById("pushit").addEventListener("click", ()=> {
         "message" : document.getElementById('message').value,
         "userId" : document.getElementById('userId').value,
     }
+    console.log(form);
     fetch("http://localhost:3000/api/message", {cache: "reload", method: "POST", body: JSON.stringify(form)})
         .then(response => response.text())
         .then(saveData => {

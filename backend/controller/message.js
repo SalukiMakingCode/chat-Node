@@ -11,7 +11,7 @@ exports.createThing = (req, res, next) => {
 };
 
 exports.modifyThing = (req,res,next) =>{
-    Message.updateOne ( {_id:req.params.id}, {...req.body, _id: req.params.id} )
+    Message.updateOne ( {_id:req.params.id}, {...req.body} )
         .then( ()=> res.status(200).json({message : "Message modifié"}))
         .catch(error => res.status(400).json({error}));
 };
