@@ -11,6 +11,21 @@ document.getElementById("pushit").addEventListener("click", ()=> {
         .catch(err => console.log(err))
 })
 
+document.getElementById("putit").addEventListener("click", ()=> {
+    let id = document.getElementById('idmes').value;
+    console.log(id);
+    let form = {
+        "message" : document.getElementById('messageput').value,
+        "userId" : document.getElementById('userIdput').value,
+    }
+    fetch("http://localhost:3000/api/message/" + id, {cache: "reload", method: "PUT", body: JSON.stringify(form)})
+        .then(response => response.text())
+        .then(saveData => {
+            console.log(saveData);
+        })
+        .catch(err => console.log(err))
+})
+
 document.getElementById("getmessage").addEventListener("click", ()=> {
     fetch("http://localhost:3000/api/message", {cache: "reload"})
         .then(response => response.text())
