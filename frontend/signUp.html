@@ -9,34 +9,30 @@
     <script src="https://salukimakingcode.github.io/pack/pack.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     
-    
-    
-    <title>Login Form</title>
+    <title>SignUp</title>
 </head>
 <body>
     
 <section class="container">
-    <div class="signInCard loginCard">
+    <div class="signUpCard loginCard">
         <h2>Hello Budy</h2>
         <div></div>
-        <form class="signInForm" action="" method="#">
-            <!--? Pseudo -->
-            <input class="case1" id="pseudo" type="text" name="pseudo" placeholder="Pseudo">
+        <!--? Error message -->
+        <p id="errorMessage" class="failedMessage"></p>
+        <form class="signUpForm" action="/api/user" method="post">
+            <!--? Email -->
+            <input class="case2" id="userEmail" type="email" name="userEmail" placeholder="your@email.com">
             <br>
             <!--? Password -->
-            <input class="case2" id="password" type="password" name="password" placeholder="Password">
+            <input class="case3" id="userPassword" type="password" name="userPassword" placeholder="Password">
             <br>
             <!--? SignIn -->
-            <input class="case3" id="signIn" name="signIn" type="submit" value="SignIn">
+            <button class="case4" id="toSignIn"><a href="index.html">SignIn</a></button>
             <!--? SignUp -->
-            <button class="case4" id="toSignUp"><a href="signUp.html">SignUp</a></button>
+            <input class="case5" id="signUp" name="signUp" type="submit" value="SignUp">
         </form>
     </div>
-    <script src="./assets/js/user.js"></script>
 </section>
-
-
-
-
+<script src="./assets/js/user.js"></script>
 </body>
 </html>

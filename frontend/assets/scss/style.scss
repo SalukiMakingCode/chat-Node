@@ -1,0 +1,187 @@
+// * ========================== | Import |  ==========================
+@import "./libs/reset.scss";
+@import "./libs/fonts.scss";
+
+// * ========================== | Setup Var |  ==========================
+:root{
+    // --clr-main:        rgb(119, 137, 175);
+    --clr-main:        rgb(15, 15, 15);
+    --clr-secondary:   rgb(255, 179, 66);
+    --clr-accent:      rgb(28, 197, 141);
+    --clr-grey:        rgb(127, 127, 127);
+    --clr-null:        rgb(56, 83, 77);
+    --clr-white:       rgb(255, 255, 255);
+    --clr-black:       rgb(0, 0, 0);
+    --clr-error:       rgb(209, 30, 30);
+    --clr-success:     rgb(2, 189, 2);
+
+    --font-main: 'OpenSans-Regular';
+    --fontS-error: 1.2em;
+    --loginCard-Hsize: 70rem;
+    --loginCard-Wsize: 40rem;
+}
+
+
+@mixin flex--center { 
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+// @include  flex--center;
+// font-family: var(--font-main);
+
+// * ========================== | Html & Body |  ==========================
+html{
+    background-color: var(--clr-black);
+}
+
+h2 {
+    text-align: center;
+    font-size:3rem;
+    color: var(--clr-white);
+    font-family: var(--font-main);
+    font-weight: bold;
+    margin: 1rem;
+}
+
+
+
+// * ========================== | Section N°1 & loginCard |  ==========================
+.container{
+    display: grid;
+    max-width: 100%;
+    height: 100vh;
+}
+.loginCard{
+    position: relative;
+    height: var(--loginCard-Hsize);
+    width:  var(--loginCard-Wsize);
+    display: grid;
+    margin:  auto;
+    gap: 1rem;
+    align-content:   center;
+    justify-content: center;
+    justify-items:   center;
+    border: solid 1px var(--clr-secondary);
+    border-radius: calc(var(--loginCard-Wsize)/2);
+    div{
+        margin: auto;
+        margin-bottom: 5rem;
+        background-color: var(--clr-accent);
+        border-radius: 1rem;
+        width: 15rem;
+        aspect-ratio: 1;
+    }
+}
+.loginCard::after{
+    content: "";
+    position: absolute;
+    top:  -.05rem;
+    left: -.05rem;
+    z-index: -1;  
+    height: var(--loginCard-Hsize);
+    width:  var(--loginCard-Wsize);
+    
+
+    border: solid 1px var(--clr-secondary);
+    border-radius: calc(var(--loginCard-Wsize)/2);
+    filter: brightness(1) sepia(1) hue-rotate(130deg) saturate(100);
+    opacity: 0.2;
+    background-image: url("../images/patternWhite.svg");
+    // background-color: var(--clr-main);
+}
+// * ========================== | Form signIn Grid |  ==========================
+.signInForm { 
+    grid-template-areas:
+        "pseudo pseudo"
+        "password password"
+        "signIn signUp";
+    
+    .case1 { grid-area: pseudo;  }
+    .case2 { grid-area: password;}
+    .case3 { grid-area: signIn;  }
+    .case4 { grid-area: signUp;  }
+}
+// * ========================== | Form signUp Grid |  ==========================
+.signUpForm{ 
+    grid-template-areas:
+        "email email"
+        "password password"
+        "signIn signUp";
+
+    .case2 { grid-area: email;   }
+    .case3 { grid-area: password;}
+    .case4 { grid-area: signIn;  }
+    .case5 { grid-area: signUp;  }
+}
+
+// * ========================== | Form Login |  ==========================
+form{
+    width: 30rem;
+
+    display: grid;
+    gap: 1rem;
+    align-items:   center;
+    justify-items: center;
+
+    input, select, button{
+        font-size: 2rem;
+        color: var(--clr-white);
+        font-family: var(--font-main);
+        
+        padding: 1rem;
+        width:  30rem;
+        height: 3.5rem;
+        
+        background-color: var(--clr-null);
+        border-radius: .6rem;
+        border:  none;
+        outline: none;
+    }
+    ::placeholder{
+        color: var(--clr-white);
+    }
+    input[type=submit], button{
+        cursor: pointer;
+        padding: 0;
+        width: 10rem;
+        transition: all 0.4s;
+    }
+    input[type=submit]:hover, button:hover{
+        background-color: var(--clr-accent);
+    }
+}    
+
+// * ========================== | Form Error Msg |  ==========================
+.errorInputMsg{
+    position:    absolute;
+    transform:   translateY(3.5rem) translateX(-20rem);
+    width:       fit-content;
+    color:       var(--clr-error);
+    font-size:   var(--fontS-error);
+    font-weight: bold;
+    font-family: var(--font-main);
+}    
+.successMessage{
+    margin-left: 0.6rem;
+    color:       var(--clr-success);
+    font-size:   var(--fontS-error);
+    font-weight: bold;
+    font-family: var(--font-main);
+}
+.failedMessage{
+    // margin-left: 0.6rem;
+    color:       var(--clr-error);
+    font-size:   var(--fontS-error);
+    font-weight: bold;
+    font-family: var(--font-main);
+}
+.errorField{
+    border: solid .2rem;
+    border-color: var(--clr-error);
+}
+.successField{
+    border: solid .2rem;
+    border-color: var(--clr-success);
+}
