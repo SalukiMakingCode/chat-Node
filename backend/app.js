@@ -7,8 +7,10 @@ const messageRoutes = require ('./routes/message');
 const userRoutes = require('./routes/user');
 
 mongoose.connect('mongodb+srv://SalukiMakingCode:yDzi75vsmEtHWis2@cluster0.narhv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-    { useNewUrlParser: true,
-        useUnifiedTopology: true })
+    { 
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
     .then(() => console.log('Connexion à MongoDB réussie !'))
     .catch(() => console.log('Connexion à MongoDB échouée !'));
 const app = express();
