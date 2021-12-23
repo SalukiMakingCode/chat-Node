@@ -5,6 +5,10 @@ const User = require('../models/User');
 
 
 exports.signup = (req,res,next) => {
+
+//  test si l'email existe dans la db
+///////////////////////////////////////////
+
   bcrypt.hash(req.body.password, 10)
       .then(hash => {
           const user = new User ({

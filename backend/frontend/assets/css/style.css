@@ -17,7 +17,8 @@ button, input, select {
 }
 
 html {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-size: 62.5%;
   /* now 1.5rem = 15px */
 }
@@ -28,7 +29,8 @@ a {
 }
 
 *, *::before, *::after {
-  box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
 }
 
 img, video {
@@ -53,53 +55,63 @@ td, th {
   font-family: OpenSans-Regular;
   src: url("../fonts/OpenSans/OpenSans-Regular.ttf");
 }
+
 @font-face {
-  font-family: "Sora-Variable";
+  font-family: 'Sora-Variable';
   src: url("../fonts/Sora-VariableFont_wght.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: "Sora-Bold";
+  font-family: 'Sora-Bold';
   src: url("../fonts/static/Sora-Bold.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: "Sora-ExtraBold";
+  font-family: 'Sora-ExtraBold';
   src: url("../fonts/static/Sora-ExtraBold.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: "Sora-ExtraLight";
+  font-family: 'Sora-ExtraLight';
   src: url("../fonts/static/Sora-ExtraLight.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: "Sora-Light";
+  font-family: 'Sora-Light';
   src: url("../fonts/static/Sora-Light.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: "Sora-Medium";
+  font-family: 'Sora-Medium';
   src: url("../fonts/static/Sora-Medium.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: "Sora-Regular";
+  font-family: 'Sora-Regular';
   src: url("../fonts/static/Sora-Regular.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: "Sora-SemiBold";
+  font-family: 'Sora-SemiBold';
   src: url("../fonts/static/Sora-SemiBold.ttf") format("truetype");
 }
+
 @font-face {
-  font-family: "Sora-Thin";
+  font-family: 'Sora-Thin';
   src: url("../fonts/static/Sora-Thin.ttf") format("truetype");
 }
+
 :root {
-  --clr-main: rgb(15, 15, 15);
-  --clr-secondary: rgb(255, 179, 66);
-  --clr-accent: rgb(28, 197, 141);
-  --clr-grey: rgb(127, 127, 127);
-  --clr-null: rgb(56, 83, 77);
-  --clr-white: rgb(255, 255, 255);
-  --clr-black: rgb(0, 0, 0);
-  --clr-error: rgb(209, 30, 30);
-  --clr-success: rgb(2, 189, 2);
-  --font-main: "OpenSans-Regular";
+  --clr-main:        rgb(15, 15, 15);
+  --clr-secondary:   rgb(255, 179, 66);
+  --clr-accent:      rgb(28, 197, 141);
+  --clr-grey:        rgb(127, 127, 127);
+  --clr-null:        rgb(56, 83, 77);
+  --clr-white:       rgb(255, 255, 255);
+  --clr-black:       rgb(0, 0, 0);
+  --clr-error:       rgb(209, 30, 30);
+  --clr-success:     rgb(2, 189, 2);
+  --font-main: 'OpenSans-Regular';
   --fontS-error: 1.2em;
   --loginCard-Hsize: 70rem;
   --loginCard-Wsize: 40rem;
@@ -119,25 +131,42 @@ h2 {
 }
 
 .container {
+  position: relative;
+  z-index: 1;
+  display: -ms-grid;
   display: grid;
   max-width: 100%;
   height: 100vh;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
 }
 
-.loginCard {
+.loginCard, .testDiv {
   position: relative;
   height: var(--loginCard-Hsize);
   width: var(--loginCard-Wsize);
+  display: -ms-grid;
   display: grid;
   margin: auto;
   gap: 1rem;
-  align-content: center;
-  justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   justify-items: center;
   border: solid 1px var(--clr-secondary);
   border-radius: calc(var(--loginCard-Wsize)/2);
 }
-.loginCard div {
+
+.loginCard div, .testDiv div {
   margin: auto;
   margin-bottom: 5rem;
   background-color: var(--clr-accent);
@@ -149,58 +178,72 @@ h2 {
 .loginCard::after {
   content: "";
   position: absolute;
-  top: -0.05rem;
-  left: -0.05rem;
+  top: -.05rem;
+  left: -.05rem;
   z-index: -1;
   height: var(--loginCard-Hsize);
   width: var(--loginCard-Wsize);
   border: solid 1px var(--clr-secondary);
   border-radius: calc(var(--loginCard-Wsize)/2);
-  filter: brightness(1) sepia(1) hue-rotate(130deg) saturate(100);
+  -webkit-filter: brightness(1) sepia(1) hue-rotate(130deg) saturate(100);
+          filter: brightness(1) sepia(1) hue-rotate(130deg) saturate(100);
   opacity: 0.2;
   background-image: url("../images/patternWhite.svg");
 }
 
-.signInForm {
-  grid-template-areas: "pseudo pseudo" "password password" "signIn signUp";
-}
-.signInForm .case1 {
-  grid-area: pseudo;
-}
-.signInForm .case2 {
-  grid-area: password;
-}
-.signInForm .case3 {
-  grid-area: signIn;
-}
-.signInForm .case4 {
-  grid-area: signUp;
-}
-
-.signUpForm {
-  grid-template-areas: "email email" "password password" "signIn signUp";
-}
-.signUpForm .case2 {
-  grid-area: email;
-}
-.signUpForm .case3 {
-  grid-area: password;
-}
-.signUpForm .case4 {
-  grid-area: signIn;
-}
-.signUpForm .case5 {
-  grid-area: signUp;
-}
-
 form {
+      grid-template-areas: "email email" "errorMsgEmail errorMsgEmail" "password password" "errorMsgPassword errorMsgPassword" "signIn signUp";
   width: 30rem;
+  display: -ms-grid;
   display: grid;
   gap: 1rem;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   justify-items: center;
 }
-form input, form select, form button {
+
+form #errorMsgEmail {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: errorMsgEmail;
+}
+
+form #errorMsgPassword {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: errorMsgPassword;
+}
+
+form .case1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: email;
+}
+
+form .case2 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: password;
+}
+
+form .case3 {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: signIn;
+}
+
+form .case4 {
+  -ms-grid-row: 5;
+  -ms-grid-column: 2;
+  grid-area: signUp;
+}
+
+input, select, button {
   font-size: 2rem;
   color: var(--clr-white);
   font-family: var(--font-main);
@@ -208,26 +251,55 @@ form input, form select, form button {
   width: 30rem;
   height: 3.5rem;
   background-color: var(--clr-null);
-  border-radius: 0.6rem;
+  border-radius: .6rem;
   border: none;
   outline: none;
 }
-form ::placeholder {
+
+::-webkit-input-placeholder {
   color: var(--clr-white);
 }
-form input[type=submit], form button {
+
+:-ms-input-placeholder {
+  color: var(--clr-white);
+}
+
+::-ms-input-placeholder {
+  color: var(--clr-white);
+}
+
+::placeholder {
+  color: var(--clr-white);
+}
+
+input[type=submit], button {
   cursor: pointer;
   padding: 0;
   width: 10rem;
+  -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
-form input[type=submit]:hover, form button:hover {
+
+input[type=submit]:hover, button:hover {
   background-color: var(--clr-accent);
+}
+
+form :is(#errorMsgEmail, #errorMsgPassword) {
+  width: 30rem;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: unset;
+      -ms-flex-align: unset;
+          align-items: unset;
+  justify-items: unset;
 }
 
 .errorInputMsg {
   position: absolute;
-  transform: translateY(3.5rem) translateX(-20rem);
+  -webkit-transform: translateY(3.5rem) translateX(-20rem);
+          transform: translateY(3.5rem) translateX(-20rem);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   color: var(--clr-error);
   font-size: var(--fontS-error);
@@ -251,13 +323,20 @@ form input[type=submit]:hover, form button:hover {
 }
 
 .errorField {
-  border: solid 0.2rem;
+  border: solid .2rem;
   border-color: var(--clr-error);
 }
 
 .successField {
-  border: solid 0.2rem;
+  border: solid .2rem;
   border-color: var(--clr-success);
 }
 
-/*# sourceMappingURL=style.css.map */
+.testDiv {
+  position: absolute;
+  z-index: 10;
+  color: var(--clr-white);
+  font-size: 5rem;
+  font-family: var(--font-main);
+  text-align: center;
+}

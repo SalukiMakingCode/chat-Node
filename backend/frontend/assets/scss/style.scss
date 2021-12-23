@@ -49,11 +49,18 @@ h2 {
 
 // * ========================== | Section N°1 & loginCard |  ==========================
 .container{
+    position: relative;
+    z-index: 1;
     display: grid;
     max-width: 100%;
     height: 100vh;
+    align-content:   center;
+    align-items:     center;
+    justify-content: center;
+    justify-items:   center;
+
 }
-.loginCard{
+.loginCard, .testDiv{
     position: relative;
     height: var(--loginCard-Hsize);
     width:  var(--loginCard-Wsize);
@@ -91,67 +98,65 @@ h2 {
     background-image: url("../images/patternWhite.svg");
     // background-color: var(--clr-main);
 }
-// * ========================== | Form signIn Grid |  ==========================
-.signInForm { 
-    grid-template-areas:
-        "pseudo pseudo"
-        "password password"
-        "signIn signUp";
-    
-    .case1 { grid-area: pseudo;  }
-    .case2 { grid-area: password;}
-    .case3 { grid-area: signIn;  }
-    .case4 { grid-area: signUp;  }
-}
-// * ========================== | Form signUp Grid |  ==========================
-.signUpForm{ 
-    grid-template-areas:
-        "email email"
-        "password password"
-        "signIn signUp";
 
-    .case2 { grid-area: email;   }
-    .case3 { grid-area: password;}
-    .case4 { grid-area: signIn;  }
-    .case5 { grid-area: signUp;  }
-}
 
 // * ========================== | Form Login |  ==========================
 form{
+    grid-template-areas:
+        "email email"
+        "errorMsgEmail errorMsgEmail"
+        "password password"
+        "errorMsgPassword errorMsgPassword"
+        "signIn signUp";
+    
+    #errorMsgEmail    { grid-area: errorMsgEmail;}
+    #errorMsgPassword { grid-area: errorMsgPassword;}
+    .case1 { grid-area: email;   }
+    .case2 { grid-area: password;}
+    .case3 { grid-area: signIn;  }
+    .case4 { grid-area: signUp;  }
+
     width: 30rem;
 
     display: grid;
     gap: 1rem;
     align-items:   center;
     justify-items: center;
+}
+input, select, button {
+    font-size: 2rem;
+    color: var(--clr-white);
+    font-family: var(--font-main);
+    
+    padding: 1rem;
+    width:  30rem;
+    height: 3.5rem;
+    
+    background-color: var(--clr-null);
+    border-radius: .6rem;
+    border:  none;
+    outline: none;
+}
+::placeholder{
+    color: var(--clr-white);
+}
+input[type=submit], button{
+    cursor: pointer;
+    padding: 0;
+    width: 10rem;
+    transition: all 0.4s;
+}
+input[type=submit]:hover, button:hover{
+    background-color: var(--clr-accent);
+}
+   
 
-    input, select, button{
-        font-size: 2rem;
-        color: var(--clr-white);
-        font-family: var(--font-main);
-        
-        padding: 1rem;
-        width:  30rem;
-        height: 3.5rem;
-        
-        background-color: var(--clr-null);
-        border-radius: .6rem;
-        border:  none;
-        outline: none;
-    }
-    ::placeholder{
-        color: var(--clr-white);
-    }
-    input[type=submit], button{
-        cursor: pointer;
-        padding: 0;
-        width: 10rem;
-        transition: all 0.4s;
-    }
-    input[type=submit]:hover, button:hover{
-        background-color: var(--clr-accent);
-    }
-}    
+form :is(#errorMsgEmail, #errorMsgPassword) {
+    width: 30rem;
+    display: grid;
+    align-items:unset;
+    justify-items: unset;
+}
 
 // * ========================== | Form Error Msg |  ==========================
 .errorInputMsg{
@@ -184,4 +189,15 @@ form{
 .successField{
     border: solid .2rem;
     border-color: var(--clr-success);
+}
+
+.testDiv{ 
+    position: absolute;
+    z-index: 10;
+    // background-color: var(--clr-secondary);
+    color:       var(--clr-white);
+    font-size: 5rem;
+    font-family: var(--font-main);
+    text-align: center;
+    
 }
