@@ -15,6 +15,7 @@ let ok = 0;
 // * ========================== | Function | ==========================
 //test le email si il est valide ou non en live
 email.onkeydown = () => email.value.match(regexMail) ? setSuccess(email) : setErrorFor(email, 'no');
+email.onchange = () => email.value.match(regexMail) ? setSuccess(email) : setErrorFor(email, 'no');
 
 function setErrorFor(input,validEmail){
     input.classList.remove('successField');
@@ -80,6 +81,7 @@ signInForm.addEventListener('submit', (e) => {
             if (ok === 2 && saveData.error === "noerror"){
                 console.log('data ok: '+ ok);
                 window.location.href = "chat.html";
+                localStorage.setItem('tokenChat', saveData.token);
             }
             if (saveData.error === "error"){
                 addElement('Error');

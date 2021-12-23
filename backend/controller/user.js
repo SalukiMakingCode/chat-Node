@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/User');
+const Message = require("../models/Message");
 
 
 exports.signup = (req,res,next) => {
@@ -46,4 +47,17 @@ exports.login = (req,res,next) => {
               .catch(error => res.status(500).json({error}));
       })
       .catch(error => res.status(500).json({error}));
+};
+
+exports.getInfo = (req,res,next) => {
+    const token = req.headers.authorization.split(' ')[1];
+    const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+    const userIdDecode = decodedToken.userId;
+    User.findOne({ _id: userIdDecode })
+        .then(infoUser => res.status(200).json(infoUser))
+        .catch(error => res.status(400).json({error}));
+};
+
+exports.updateInfo = (req,res,next) => {
+
 };

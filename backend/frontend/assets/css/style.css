@@ -17,8 +17,7 @@ button, input, select {
 }
 
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 62.5%;
   /* now 1.5rem = 15px */
 }
@@ -29,8 +28,7 @@ a {
 }
 
 *, *::before, *::after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 img, video {
@@ -55,63 +53,53 @@ td, th {
   font-family: OpenSans-Regular;
   src: url("../fonts/OpenSans/OpenSans-Regular.ttf");
 }
-
 @font-face {
-  font-family: 'Sora-Variable';
+  font-family: "Sora-Variable";
   src: url("../fonts/Sora-VariableFont_wght.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: 'Sora-Bold';
+  font-family: "Sora-Bold";
   src: url("../fonts/static/Sora-Bold.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: 'Sora-ExtraBold';
+  font-family: "Sora-ExtraBold";
   src: url("../fonts/static/Sora-ExtraBold.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: 'Sora-ExtraLight';
+  font-family: "Sora-ExtraLight";
   src: url("../fonts/static/Sora-ExtraLight.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: 'Sora-Light';
+  font-family: "Sora-Light";
   src: url("../fonts/static/Sora-Light.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: 'Sora-Medium';
+  font-family: "Sora-Medium";
   src: url("../fonts/static/Sora-Medium.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: 'Sora-Regular';
+  font-family: "Sora-Regular";
   src: url("../fonts/static/Sora-Regular.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: 'Sora-SemiBold';
+  font-family: "Sora-SemiBold";
   src: url("../fonts/static/Sora-SemiBold.ttf") format("truetype");
 }
-
 @font-face {
-  font-family: 'Sora-Thin';
+  font-family: "Sora-Thin";
   src: url("../fonts/static/Sora-Thin.ttf") format("truetype");
 }
-
 :root {
-  --clr-main:        rgb(15, 15, 15);
-  --clr-secondary:   rgb(255, 179, 66);
-  --clr-accent:      rgb(28, 197, 141);
-  --clr-grey:        rgb(127, 127, 127);
-  --clr-null:        rgb(56, 83, 77);
-  --clr-white:       rgb(255, 255, 255);
-  --clr-black:       rgb(0, 0, 0);
-  --clr-error:       rgb(209, 30, 30);
-  --clr-success:     rgb(2, 189, 2);
-  --font-main: 'OpenSans-Regular';
+  --clr-main: rgb(15, 15, 15);
+  --clr-secondary: rgb(255, 179, 66);
+  --clr-accent: rgb(28, 197, 141);
+  --clr-grey: rgb(127, 127, 127);
+  --clr-null: rgb(56, 83, 77);
+  --clr-white: rgb(255, 255, 255);
+  --clr-black: rgb(0, 0, 0);
+  --clr-error: rgb(209, 30, 30);
+  --clr-success: rgb(2, 189, 2);
+  --font-main: "OpenSans-Regular";
   --fontS-error: 1.2em;
   --loginCard-Hsize: 70rem;
   --loginCard-Wsize: 40rem;
@@ -133,18 +121,12 @@ h2 {
 .container {
   position: relative;
   z-index: 1;
-  display: -ms-grid;
   display: grid;
   max-width: 100%;
   height: 100vh;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
   justify-items: center;
 }
 
@@ -152,20 +134,15 @@ h2 {
   position: relative;
   height: var(--loginCard-Hsize);
   width: var(--loginCard-Wsize);
-  display: -ms-grid;
   display: grid;
   margin: auto;
   gap: 1rem;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-content: center;
+  justify-content: center;
   justify-items: center;
   border: solid 1px var(--clr-secondary);
   border-radius: calc(var(--loginCard-Wsize)/2);
 }
-
 .loginCard div, .testDiv div {
   margin: auto;
   margin-bottom: 5rem;
@@ -178,68 +155,63 @@ h2 {
 .loginCard::after {
   content: "";
   position: absolute;
-  top: -.05rem;
-  left: -.05rem;
+  top: -0.05rem;
+  left: -0.05rem;
   z-index: -1;
   height: var(--loginCard-Hsize);
   width: var(--loginCard-Wsize);
   border: solid 1px var(--clr-secondary);
   border-radius: calc(var(--loginCard-Wsize)/2);
-  -webkit-filter: brightness(1) sepia(1) hue-rotate(130deg) saturate(100);
-          filter: brightness(1) sepia(1) hue-rotate(130deg) saturate(100);
+  filter: brightness(1) sepia(1) hue-rotate(130deg) saturate(100);
   opacity: 0.2;
   background-image: url("../images/patternWhite.svg");
 }
 
 form {
-      grid-template-areas: "email email" "errorMsgEmail errorMsgEmail" "password password" "errorMsgPassword errorMsgPassword" "signIn signUp";
+  grid-template-areas: "pictureProfile pictureProfile" "pseudo pseudo" "firstName firstName" "lastName lastName" "gender gender" "email email" "errorMsgEmail errorMsgEmail" "password password" "errorMsgPassword errorMsgPassword" "signIn signUp";
   width: 30rem;
-  display: -ms-grid;
   display: grid;
   gap: 1rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   justify-items: center;
 }
-
 form #errorMsgEmail {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
   grid-area: errorMsgEmail;
 }
-
 form #errorMsgPassword {
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
   grid-area: errorMsgPassword;
 }
-
+form .case0 {
+  grid-area: pictureProfile;
+  font-size: 2rem;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
 form .case1 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
+  grid-area: pseudo;
+}
+form .case2 {
+  grid-area: firstName;
+}
+form .case3 {
+  grid-area: lastName;
+}
+form .case4 {
+  grid-area: gender;
+}
+form .case5 {
   grid-area: email;
 }
-
-form .case2 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
+form .case6 {
   grid-area: password;
 }
-
-form .case3 {
-  -ms-grid-row: 5;
-  -ms-grid-column: 1;
+form .case7 {
   grid-area: signIn;
 }
-
-form .case4 {
-  -ms-grid-row: 5;
-  -ms-grid-column: 2;
+form .case8 {
   grid-area: signUp;
 }
 
@@ -251,32 +223,20 @@ input, select, button {
   width: 30rem;
   height: 3.5rem;
   background-color: var(--clr-null);
-  border-radius: .6rem;
+  border-radius: 0.6rem;
   border: none;
   outline: none;
 }
 
-::-webkit-input-placeholder {
+::placeholder, select {
   color: var(--clr-white);
-}
-
-:-ms-input-placeholder {
-  color: var(--clr-white);
-}
-
-::-ms-input-placeholder {
-  color: var(--clr-white);
-}
-
-::placeholder {
-  color: var(--clr-white);
+  font-size: 1.4rem;
 }
 
 input[type=submit], button {
   cursor: pointer;
   padding: 0;
   width: 10rem;
-  -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
 
@@ -286,20 +246,14 @@ input[type=submit]:hover, button:hover {
 
 form :is(#errorMsgEmail, #errorMsgPassword) {
   width: 30rem;
-  display: -ms-grid;
   display: grid;
-  -webkit-box-align: unset;
-      -ms-flex-align: unset;
-          align-items: unset;
+  align-items: unset;
   justify-items: unset;
 }
 
 .errorInputMsg {
   position: absolute;
-  -webkit-transform: translateY(3.5rem) translateX(-20rem);
-          transform: translateY(3.5rem) translateX(-20rem);
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
+  transform: translateY(3.5rem) translateX(-20rem);
   width: fit-content;
   color: var(--clr-error);
   font-size: var(--fontS-error);
@@ -323,12 +277,12 @@ form :is(#errorMsgEmail, #errorMsgPassword) {
 }
 
 .errorField {
-  border: solid .2rem;
+  border: solid 0.2rem;
   border-color: var(--clr-error);
 }
 
 .successField {
-  border: solid .2rem;
+  border: solid 0.2rem;
   border-color: var(--clr-success);
 }
 
@@ -340,3 +294,132 @@ form :is(#errorMsgEmail, #errorMsgPassword) {
   font-family: var(--font-main);
   text-align: center;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 4rem;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal #modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 1rem;
+  border: 10px solid #888;
+  width: 80%;
+}
+.modal #modal-content p#win {
+  display: none;
+  text-align: center;
+  font-size: 2.5rem;
+}
+.modal #modal-content p#lose {
+  display: none;
+  text-align: center;
+  font-size: 2.5rem;
+}
+.modal #modal-content p#theWord {
+  text-align: center;
+  font-size: 1.8rem;
+  padding-top: 1rem;
+}
+.modal #modal-content p#titleAllWord {
+  text-align: center;
+  font-size: 1.5rem;
+  padding-top: 4rem;
+}
+.modal #modal-content .containerFlex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding-top: 2.5rem;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.modal #modal-content .containerFlex .pictureChoose {
+  cursor: pointer;
+}
+.modal #modal-content .containerFlex #flagEn {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  width: 12rem;
+  height: 7.5rem;
+  background-image: url("../img/en.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.modal #modal-content .containerFlex #flagFr {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  width: 12rem;
+  height: 7.5rem;
+  background-image: url("../img/fr.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.modal #modal-content .containerFlex #flagNl {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  width: 12rem;
+  height: 7.5rem;
+  background-image: url("../img/nl.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.modal #modal-content .containerFlex #flagDe {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  width: 12rem;
+  height: 7.5rem;
+  background-image: url("../img/de.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.modal #modal-content .containerFlex #flagIt {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  width: 12rem;
+  height: 7.5rem;
+  background-image: url("../img/it.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.modal #modal-content .containerFlex .wordAfterGame {
+  background-color: #222222C0;
+  border-radius: 50%;
+  padding: 0.4rem;
+}
+.modal #modal-content .putTheButton {
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+.modal #modal-content .putTheButton #replay {
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+  padding: 1.5rem;
+  border-radius: 50%;
+  background-color: #CCCCCC;
+  border: solid 1px black;
+}
+
+/*# sourceMappingURL=style.css.map */

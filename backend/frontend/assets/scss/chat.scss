@@ -1,0 +1,94 @@
+body {
+  main {
+    margin:0 auto;
+    margin-top:2rem;
+    width:90%;
+    background-color: #2255BF;
+    border-radius: 2.4rem;
+    display:flex;
+    justify-content: space-around;
+    #mainContentLeft {
+      width:70%;
+      background-color: #F3F6FF;
+      border-radius: 2rem;
+      margin: 1rem 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      #user {
+        width:30%;
+        height:35rem;
+        background-color: #FFFFFF;
+        border-radius: 2rem;
+        box-shadow: 10px 10px 26px 1px rgba(181,190,255,0.5);
+      }
+      #chat {
+        width:66%;
+        height:35rem;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: flex-end;
+        #chatMessage{
+          display: flex;
+          padding: 1rem;
+          ul {
+            width:100%;
+            li {
+              &.other {
+                width: fit-content;
+                list-style-type: none;
+                background-color: #FFFFFF;
+                border-radius: 2rem 2rem 2rem 0;
+                padding: 1rem;
+                box-shadow: 10px 10px 26px 1px rgba(181, 190, 255, 0.5);
+                clear: both;
+                margin-bottom: 0.5rem;
+              }
+
+              &.me {
+                width: fit-content;
+                text-align: right;
+                list-style-type: none;
+                background-color: #FFFFFF;
+                border-radius: 2rem 2rem 0 2rem;
+                padding: 1rem;
+                box-shadow: 10px 10px 26px 1px rgba(181, 190, 255, 0.5);
+                float:right;
+                clear: both;
+                margin-bottom: 0.5rem;
+              }
+            }
+          }
+        }
+        #chatForm {
+          margin-top: 1rem;
+          text-align: center;
+          input {
+            width:80%;
+          }
+          button {
+            width:10%;
+          }
+        }
+      }
+    }
+    #mainContentRight {
+      width:25%;
+      height:37rem;
+      background-color: #F3F6FF;
+      border-radius: 2rem;
+      margin: 1rem 0;
+      display:flex;
+      flex-flow: column wrap;
+      align-items: center;
+      h2 {
+        padding-top: 1rem;
+      }
+      img {
+        padding-top: 1rem;
+        width:80px;
+        height:79px;
+      }
+    }
+  }
+}

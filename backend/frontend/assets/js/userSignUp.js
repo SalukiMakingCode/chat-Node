@@ -96,7 +96,7 @@ signUpForm.addEventListener('submit', (e) => {
         .then(saveData => {
             // affiché inscription réussie OU ratée     saveData.error === "noerror"
             // * ===================| IF ALL IS OK |===================
-            if(ok === 2 && saveData.error != "error"){
+            if(ok === 2 && saveData.error !== "error"){
                 //~~~~~~~~~~~~~~~~~~| tu envois les datas a la DB |~~~~~~~~~~~~~~~~~~
                 console.log('data ok: '+ ok);
                 addElement('Data Send');
@@ -109,3 +109,14 @@ signUpForm.addEventListener('submit', (e) => {
         })
         .catch(err => console.log(err));
 });
+
+id('choosePicture').addEventListener('click', ()=> {
+ id('myModal').style.display="flex";
+});
+
+document.querySelectorAll('.pictureChoose').forEach((element) =>
+    element.addEventListener('click', () => {
+        id('myModal').style.display="none";
+        let numId=element.id .substring(3, 5);
+        id('choosePicture').innerHTML="<img src='assets/images/" + numId + ".png'><input type='hidden' id='urlProfilePicture' value='" + numId + "'/>";
+    }));

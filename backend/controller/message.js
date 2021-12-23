@@ -1,9 +1,14 @@
 const Message = require('../models/Message');
+const jwt = require("jsonwebtoken");
 
 exports.createThing = (req, res, next) => {
     //delete req.body._id;
+    const token = req.headers.authorization.split(' ')[1];
+    const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET');
+    const userIdDecode = decodedToken.userId;
     const mess = new Message ({
-        ...req.body
+        ...req.body,
+        userId:userIdDecode
     }) ;
     mess.save()
         .then(() => res.status(201).json ({ message : 'message enregistré'}))
