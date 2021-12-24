@@ -50,19 +50,12 @@ function setSuccess(input){
 
 function addElement (input) {
     const parentDiv = document.querySelector('.container');
-    // crée un nouvel élément div
     const newDiv = document.createElement('div');
-    // crée ses class
     newDiv.classList.add('testDiv','loginCard');
-    // contenu
-    const newContent = '<h2>'+input+'</h2><button class="case4" id="signIn"><a href="index.html">SignIn</a></button>';
-    // insertion du contenu
-    // help source: https://stackoverflow.com/questions/494143/creating-a-new-dom-element-from-an-html-string-using-built-in-dom-methods-or-pro
+    const newContent = '<h2>'+input+'</h2><button id="toSignIn"><a href="index.html">SignIn</a></button>';
     newDiv.innerHTML = newContent.trim();
-    // ajoute le nouvel élément créé et son contenu dans le DOM
     const currentDiv = document.querySelector('.signUpCard');
     parentDiv.insertBefore(newDiv, currentDiv);
-    // enlève le form
     currentDiv.remove();
 }
 
@@ -99,7 +92,7 @@ signUpForm.addEventListener('submit', (e) => {
             if(ok === 2 && saveData.error !== "error"){
                 //~~~~~~~~~~~~~~~~~~| tu envois les datas a la DB |~~~~~~~~~~~~~~~~~~
                 console.log('data ok: '+ ok);
-                addElement('Data Send');
+                addElement('User create');
             }
             if (saveData.error === "error"){
                 addElement('Error');
