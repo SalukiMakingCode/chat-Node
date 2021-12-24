@@ -113,7 +113,7 @@ body {
           padding: 1rem;
           height: 30rem;
           
-          overflow-y: auto;
+          overflow-y: scroll;
           
           
           
@@ -124,6 +124,7 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
+            align-items: center;
             
             .bubbleMsg {
               position: relative;
@@ -145,6 +146,7 @@ body {
                 p{
                   font-weight: bold;
                   color: var(--clr-font);
+                  word-break: break-all;
                 }
                 small {
                   font-size: .7rem;
@@ -154,7 +156,7 @@ body {
               }
 
               &.me{
-                float:right;
+                margin-left: auto;
                 color: var(--clr-white);
                 text-align: right;
                 img{
@@ -172,7 +174,7 @@ body {
                 }
               }
               &.other{
-                float:left;
+                margin-right: auto;
                 span{
                   background-color: var(--clr-white);
                   border-radius: 2rem 2rem 2rem 0;

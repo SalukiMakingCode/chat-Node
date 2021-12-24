@@ -4,7 +4,7 @@ const messages = document.getElementById('messages');
 const form = document.getElementById('form');
 const input = document.getElementById('input');
 let bearer = 'Bearer ' + localStorage.getItem('tokenChat');
-
+let userId = localStorage.getItem('userId');
 
 function addElement(pseudo, mail, img, firstname, lastname){
 
@@ -51,7 +51,7 @@ getUserInfo();
 form.addEventListener('submit', function(e) {
     e.preventDefault();
     if (input.value) {
-        socket.emit('chat message', input.value);
+        socket.emit('chat message', input.value, userId);
         let form = {
             "message" : input.value,
         }
@@ -70,21 +70,74 @@ form.addEventListener('submit', function(e) {
     }
 });
 
-socket.on('chat message', function(msg) {
-    const item = document.createElement('li');
-    item.textContent = msg;
-    // item.className = "other";
-   item.className = "me";
-    messages.appendChild(item);
-    window.scrollTo(0, document.body.scrollHeight);
+socket.on('chat message', function(msg, user) {
+  putOneLineChat(msg, user);
 });
 
 
+function putOneLineChat (msg, user) {
+    const timespan = new Date().getTime();
+
+    const item = document.createElement('div');
+    if (user === userId) item.classList.add('bubbleMsg', 'me');
+    else item.className = "bubbleMsg other";
+    item.id = "bubble" + timespan;
+    document.getElementById('chatDiv').appendChild(item);
+    window.scrollTo(0, document.body.scrollHeight);
+
+    if (user !== userId) {
+        const profilePictureOther = document.createElement('img');
+        profilePictureOther.src = "assets/images/4.png";   //catcher le chiffre de l'image
+        profilePictureOther.alt = "";
+        document.getElementById("bubble" + timespan).appendChild(profilePictureOther);
+    }
+
+    const item2 = document.createElement('span');
+    item2.id = "span" + timespan;
+    document.getElementById("bubble" +timespan).appendChild(item2);
+
+    const item3 = document.createElement('p');
+    item3.textContent = msg;
+    document.getElementById("span" +timespan).appendChild(item3);
+
+    const item4 = document.createElement('small');
+    item4.className="yourTimeMsg";
+    const d = new Date();
+    item4.textContent = d.getHours() + ":" + d.getMinutes();
+    document.getElementById("span" +timespan).appendChild(item4);
+
+    if (user === userId) {
+        const profilePictureMe = document.createElement('img');
+        profilePictureMe.src = "assets/images/4.png";   //catcher le chiffre de l'image
+        profilePictureMe.alt = "";
+        document.getElementById("bubble" + timespan).appendChild(profilePictureMe);
+    }
+    //document.getElementById('chatDiv').scrollHeight
+    document.getElementById('chatDiv').scrollTo=(0, document.getElementById('chatDiv').scrollHeight);
+   // alerte(document.getElementById('chatDiv').scrollTop);
+}
 
 
 
-
-
+function getAllMessage() {
+    fetch("http://localhost:3000/api/message", {cache: "reload",headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': bearer
+        }, method: "GET"})
+        .then(response => response.json())
+        .then(saveData => {
+            let i=100;
+            for (let elem of saveData) {
+                setTimeout(() => {
+                    putOneLineChat(elem.message, elem.userId)}
+                    , i) ;
+                i+=70;
+            }
+        })
+        .catch(err => console.log(err))
+}
+getAllMessage();
 
 
 

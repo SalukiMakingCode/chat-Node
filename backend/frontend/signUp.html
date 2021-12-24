@@ -17,7 +17,10 @@
             <form class="signUpForm" action="signUp.html" method="post">
                 <div id="choosePicture">
                     <p>Click here to choose your profile picture</p>
+                    <input type="hidden" id="urlProfilePicture" value=""/>
                 </div>
+                <!--? Error message -->
+                <p id="errorMsgProfilePicture" class="failedMessage"></p>
                 <!--? Pseudo -->
                 <input id="userPseudo" type="text" name="userPseudo" placeholder="Pseudo">
                 <!--? Error message -->

@@ -82,6 +82,7 @@ signInForm.addEventListener('submit', (e) => {
                 console.log('data ok: '+ ok);
                 window.location.href = "chat.html";
                 localStorage.setItem('tokenChat', saveData.token);
+                localStorage.setItem('userId', saveData.userId);
             }
             if (saveData.error === "error"){
                 addElement('Error');
