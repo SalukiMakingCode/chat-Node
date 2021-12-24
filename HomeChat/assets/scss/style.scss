@@ -1,0 +1,89 @@
+// * ========================== | Import |  ==========================
+@import "./libs/reset.scss";
+@import "./libs/fonts.scss";
+
+// * ========================== | Setup Var |  ==========================
+:root{
+    // --clr-main:        rgb(119, 137, 175);
+    --clr-main:        rgb(34,85,191);
+    --clr-secondary:   rgb(243,246,255);
+    --clr-accent:      rgb(28, 197, 141);
+    --clr-grey:        rgb(127, 127, 127);
+    --clr-null:        rgb(56, 83, 77);
+    --clr-white:       rgb(255, 255, 255);
+    --clr-black:       rgb(0, 0, 0);
+    --clr-pink:        rgb(241,107,170);
+
+    --font-main: 'OpenSans-Regular';
+    --fontS-error: 1.2em;
+    --loginCard-Hsize: 70rem;
+    --loginCard-Wsize: 40rem;
+}
+
+
+@mixin flex--center { 
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+// @include  flex--center;
+// font-family: var(--font-main);
+
+
+//? ///////////////////////////////////////////////////////////| Html & Body & Content|\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+html{
+    background-color: var(--clr-main);
+    font-size: 1.5rem;
+    color: var(--clr-white);
+    font-family: var(--font-main);
+}
+content{}
+
+//! ///////////////////////////////////////////////////////////| NavBar |\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+nav{}
+
+//* ///////////////////////////////////////////////////////////| Section Chat |\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+.mainContent{}
+//* ###################| Rooms |###################
+.rooms{}
+.contactSearch{
+    input[type=search]{}
+    .btnSearched{}
+}
+//* ###################| Contact Room |###################
+.contactCard{
+    .contactPicture{}
+    .profileName{}
+    .timeConnected{}
+}
+//* ###################| Chat |###################
+.containerChat{}
+.chat{}
+//* ###################| Contact MSG |###################
+.contactMsgCard{
+    .contactPicture{}
+    .contactMsg{}
+    .contactTimeMsg{}
+}
+//* ###################| Your MSG |###################
+.yourMsgCard{
+    .yourPicture{}
+    .yourMsg{}
+    .yourTimeMsg{}
+}
+//* ###################| Type MSG |###################
+.typeMsgCard{
+    .msgForm{
+        .insertMsg{}
+        .btnSendMsg{}
+    }
+}
+
+//? ///////////////////////////////////////////////////////////| Section Profile |\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+.profile{}
+.profileHead{
+    img{}
+    h2{}
+}
+.logOut{}
