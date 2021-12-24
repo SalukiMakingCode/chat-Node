@@ -78,3 +78,19 @@ socket.on('chat message', function(msg) {
     messages.appendChild(item);
     window.scrollTo(0, document.body.scrollHeight);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+// source for scrool:
+// https://www.codegrepper.com/code-examples/javascript/auto+scroll+down+when+new+messages+come+in+css
+// https://stackoverflow.com/questions/36606570/scroll-down-to-bottom-when-new-message-is-sent
