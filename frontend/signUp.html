@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="sylvain valvassori">
+    <link href="https://salukimakingcode.github.io/pack/pack.css" rel="stylesheet" />
+    <script src="https://salukimakingcode.github.io/pack/pack.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
+    <title>SignUp</title>
+</head>
+<body>
+    
+<section class="container">
+    <div class="signUpCard loginCard">
+        <h2>Hello Budy</h2>
+        <div></div>
+        <!--? Error message -->
+        <p id="errorMessage" class="failedMessage"></p>
+        <form class="signUpForm" action="/api/user" method="post">
+            <!--? Email -->
+            <input class="case2" id="userEmail" type="email" name="userEmail" placeholder="your@email.com">
+            <br>
+            <!--? Password -->
+            <input class="case3" id="userPassword" type="password" name="userPassword" placeholder="Password">
+            <br>
+            <!--? SignIn -->
+            <button class="case4" id="toSignIn"><a href="index.html">SignIn</a></button>
+            <!--? SignUp -->
+            <input class="case5" id="signUp" name="signUp" type="submit" value="SignUp">
+        </form>
+    </div>
+</section>
+<script src="./assets/js/user.js"></script>
+</body>
+</html>
