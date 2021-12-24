@@ -13,6 +13,8 @@ if (document.getElementById("signUp")) {
         })
             .then(response => response.text())
             .then(saveData => {
+                ////////////////////////////////////////////////////
+                // affiché inscription réussie OU ratée
                 console.log(saveData);
             })
             .catch(err => console.log(err))
@@ -32,9 +34,15 @@ if (document.getElementById("signIn")) {
                 'Content-Type': 'application/json'
             }, method: "POST", body: JSON.stringify(form)
         })
-            .then(response => response.text())
+            .then(response => response.json())
             .then(saveData => {
-                console.log(saveData);
+                if (saveData.error === "noerror") {
+                    window.location.href="chat.html";
+                }
+                else {
+                    ///////////////////////////////
+                    // Affiché les message d'erreur suite à la connexion
+                }
             })
             .catch(err => console.log(err))
     })
