@@ -6,27 +6,39 @@ const input = document.getElementById('input');
 let bearer = 'Bearer ' + localStorage.getItem('tokenChat');
 let userId = localStorage.getItem('userId');
 
-function addElement(pseudo, mail, img, firstname, lastname){
 
-    const profilePseudo = document.createElement('h2');
-    profilePseudo.id='profilePseudo';
-    profilePseudo.innerHTML = pseudo;
-    document.getElementById('mainContentRight').appendChild(profilePseudo);
+// <section id="mainContentRight">
+//     <div className="profileHead">
+//         <img src="assets/images/4.png" alt="">
+//             <h2>Boby Wilsburg</h2>
+//     </div>
+//     <h3 className="logOut"><a href="">Logout</a></h3>
+// </section>
+
+
+
+function addElement(pseudo, mail, img, firstname, lastname){
 
     const profileImage = document.createElement('img');
     profileImage.id='profileImage';
     profileImage.src = './assets/images/' + img + '.png';
-    document.getElementById('mainContentRight').appendChild(profileImage);
+    document.getElementById('profileHead').appendChild(profileImage);
 
     const profileName = document.createElement('h2');
     profileName.id='profileName';
     profileName.innerHTML = firstname + " " + lastname;
-    document.getElementById('mainContentRight').appendChild(profileName);
+    document.getElementById('profileHead').appendChild(profileName);
+
+    const profilePseudo = document.createElement('h2');
+    profilePseudo.id='profilePseudo';
+    profilePseudo.innerHTML = pseudo;
+    document.getElementById('profileHead').appendChild(profilePseudo);
+
 
     const profileMail = document.createElement('h2');
     profileMail.id='profileMail';
     profileMail.innerHTML = mail;
-    document.getElementById('mainContentRight').appendChild(profileMail);
+    document.getElementById('profileHead').appendChild(profileMail);
 }
 
 // firstname: { type: String, required:true },
@@ -83,7 +95,6 @@ function putOneLineChat (msg, user) {
     else item.className = "bubbleMsg other";
     item.id = "bubble" + timespan;
     document.getElementById('chatDiv').appendChild(item);
-    window.scrollTo(0, document.body.scrollHeight);
 
     if (user !== userId) {
         const profilePictureOther = document.createElement('img');
@@ -113,11 +124,21 @@ function putOneLineChat (msg, user) {
         document.getElementById("bubble" + timespan).appendChild(profilePictureMe);
     }
     //document.getElementById('chatDiv').scrollHeight
-    document.getElementById('chatDiv').scrollTo=(0, document.getElementById('chatDiv').scrollHeight);
+   // document.getElementById('chatDiv').scrollTo=(0, document.getElementById('chatDiv').scrollHeight);
    // alerte(document.getElementById('chatDiv').scrollTop);
+   //  scrollIt();
+    //document.getElementById('chatDiv').scrollTo(0, document.getElementById("bubble" + timespan).scrollHeight);
+    //alerte(document.getElementById('chatDiv').scrollHeight);
+    document.getElementById('chatDiv').scrollTo(0, document.getElementById(item.id).scrollHeight);
 }
 
-
+// function scrollIt () {
+//     document.getElementById('chatDiv').scrollTo({
+//         top: 1000,
+//         left: 1000,
+//         behavior: 'smooth'
+//     });
+// }
 
 function getAllMessage() {
     fetch("http://localhost:3000/api/message", {cache: "reload",headers: {
@@ -141,7 +162,10 @@ getAllMessage();
 
 
 
-
+id("logOut").addEventListener('click', ()=> {
+    localStorage.clear();
+    window.location.href="index.html";
+});
 
 
 // source for scrool:
